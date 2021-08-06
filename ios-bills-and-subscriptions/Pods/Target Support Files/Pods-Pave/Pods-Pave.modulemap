@@ -1,0 +1,6 @@
+framework module Pods_Pave {
+  umbrella header "Pods-Pave-umbrella.h"
+
+  export *
+  module * { export * }
+}

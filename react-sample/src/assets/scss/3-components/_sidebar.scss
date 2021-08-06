@@ -1,0 +1,284 @@
+.sidebar {
+  min-width: $sidebar-width;
+  max-width: $sidebar-width;
+  transition: $sidebar-transition;
+  background: $sidebar-bg;
+  border-right: $sidebar-border;
+}
+
+.sidebar-content {
+  background: $sidebar-bg;
+  transition: $sidebar-transition;
+
+  .sidebar-sticky & {
+    border-right: $sidebar-border;
+  }
+}
+
+.sidebar-sticky {
+  .sidebar-nav {
+    padding-bottom: 0;
+  }
+
+  .sidebar-content {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $sidebar-width;
+  }
+}
+
+.sidebar-nav {
+  padding-bottom: $spacer*3.5;
+  padding-left: 0;
+  list-style: none;
+}
+
+// Sidebar links
+.sidebar-link,
+a.sidebar-link {
+  display: block;
+  padding: $sidebar-link-padding;
+  color: $sidebar-link-color;
+  font-weight: $sidebar-link-font-weight;
+  background: $sidebar-link-bg;
+  transition: background 50ms ease-in-out;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+
+  i,
+  svg {
+    margin-right: .75rem;
+    color: $sidebar-link-icon-color;
+    opacity: .3;
+  }
+}
+
+// Sidebar nested links
+.sidebar-dropdown {
+  .sidebar-dropdown {
+    .sidebar-link {
+      padding: $sidebar-link-child-second-padding;
+    }
+
+    .sidebar-dropdown {
+      .sidebar-link {
+        padding: $sidebar-link-child-third-padding;
+      }
+    }
+  }
+}
+
+.sidebar-link:focus {
+  outline: 0;
+}
+
+.sidebar-link:hover {
+  color: $sidebar-link-hover-color;
+  background: $sidebar-link-hover-bg;
+
+  i,
+  svg {
+    color: $sidebar-link-icon-hover-color;
+    opacity: .5;
+  }
+}
+
+.sidebar-item.active > .sidebar-link,
+.sidebar-item.active .sidebar-link:hover {
+  color: $sidebar-link-active-color;
+  background: $sidebar-link-active-bg;
+
+  i,
+  svg {
+    color: $sidebar-link-icon-active-color;
+    opacity: .5;
+  }
+}
+
+// Children
+.sidebar-dropdown .sidebar-link {
+  padding: $sidebar-link-child-padding;
+  color: $sidebar-link-child-color;
+  background: $sidebar-link-child-bg;
+  font-weight: $sidebar-link-child-font-weight;
+}
+
+.sidebar-dropdown .sidebar-item .sidebar-link:hover {
+  color: $sidebar-link-child-hover-color;
+  background: $sidebar-link-child-hover-bg;
+  font-weight: $sidebar-link-hover-font-weight;
+}
+
+.sidebar-dropdown .sidebar-item.active .sidebar-link {
+  color: $sidebar-link-child-active-color;
+  background: $sidebar-link-child-active-bg;
+  font-weight: $sidebar-link-active-font-weight;
+}
+
+// Chevron
+.sidebar [data-toggle="collapse"] {
+  position: relative;
+}
+
+.sidebar [data-toggle="collapse"]:before {
+  content: " ";
+  border: solid;
+  border-width: 0 .1rem .1rem 0;
+  display: inline-block;
+  padding: 2px;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 1.2rem;
+  right: 1.7rem;
+  transition: all .2s ease-out;
+}
+
+.sidebar [aria-expanded="true"]:before,
+.sidebar [data-toggle="collapse"]:not(.collapsed):before {
+  transform: rotate(-135deg);
+  top: 1.4rem;
+}
+
+.sidebar .sidebar-dropdown [data-toggle="collapse"]::before {
+  top: 1rem;
+}
+
+.sidebar .sidebar-dropdown [aria-expanded="true"]:before,
+.sidebar .sidebar-dropdown [data-toggle="collapse"]:not(.collapsed):before {
+  top: 1.2rem;
+}
+
+// Sidebar brand
+.sidebar-brand {
+  font-weight: $sidebar-brand-font-weight;
+  font-size: $sidebar-brand-font-size;
+  padding: $sidebar-brand-padding-y $sidebar-brand-padding-x;
+  color: $sidebar-brand-color;
+  display: block;
+
+  &:hover {
+    text-decoration: none;
+    color: $sidebar-brand-color;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  svg,
+  .feather {
+    color: $sidebar-brand-icon-color;
+    height: 24px;
+    width: 24px;
+    margin-left: -0.15rem;
+    margin-right: 0.375rem;
+  }
+}
+
+// Toggle states
+.sidebar-toggle {
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+}
+
+.sidebar {
+  &.toggled {
+    margin-left: -$sidebar-width;
+
+    .sidebar-content {
+      left: -$sidebar-width;
+    }
+  }
+
+  // Workaround for IE bug, more info:
+  // https://stackoverflow.com/a/25850649
+  @media (min-width: 1px) and (max-width: #{map-get($grid-breakpoints, 'lg') - .02px}) {
+
+    // Sidebar default state (on mobile)
+    margin-left: -$sidebar-width;
+
+    .sidebar-content {
+      left: -$sidebar-width;
+    }
+
+    // Sidebar toggled state (on mobile)
+    &.toggled {
+      margin-left: 0;
+
+      .sidebar-content {
+        left: 0;
+      }
+    }
+
+    // Sidebar collapsed state (on mobile)
+    // layouts-sidebar-collapsed.html
+    &-collapsed {
+      margin-left: 0;
+
+      .sidebar-content {
+        left: 0;
+      }
+
+      &.toggled {
+        margin-left: -$sidebar-width;
+
+        .sidebar-content {
+          left: -$sidebar-width;
+        }
+      }
+    }
+  }
+}
+
+// Sidebar header
+.sidebar-header {
+  background: transparent;
+  color: $sidebar-header-color;
+  padding: $sidebar-header-padding;
+  font-size: $sidebar-header-font-size;
+  text-transform: $sidebar-header-text-transform;
+}
+
+// Sidebar bottom
+.sidebar-bottom {
+  transition: $sidebar-transition;
+  padding: $spacer;
+  width: inherit;
+  font-size: 0.8rem;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  background: $sidebar-bottom-bg;
+  min-width: $sidebar-width;
+  max-width: $sidebar-width;
+  color: $sidebar-bottom-color;
+  border-right: $sidebar-border;
+  margin-left: 0;
+
+  h5 {
+    color: $sidebar-bottom-color;
+  }
+}
+
+.sidebar.toggled .sidebar-bottom {
+  margin-left: -$sidebar-width;
+}
+
+// Badge
+.sidebar-item {
+  .sidebar-badge {
+    position: absolute;
+    right: 20px;
+    top: 14px;
+  }
+
+  .sidebar-item {
+    .sidebar-badge {
+      top: 10px;
+    }
+  }
+}

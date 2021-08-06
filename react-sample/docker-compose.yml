@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  web:
+    image: pavedev/pave-dashboard:latest
+    ports:
+      - "3000:3000"
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    environment:
+      - REACT_APP_API_ENDPOINT=https://api.pave.dev/v1
+      - REACT_APP_API_KEY=YOUR_API_KEY
