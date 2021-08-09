@@ -1,0 +1,152 @@
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+.settings {
+  display: none;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+}
+
+.settings-toggle {
+  background: $gray-800;
+  color: $white;
+  position: fixed;
+  top: 220px;
+  right: 0;
+  width: 46px;
+  padding: $spacer*0.75 $spacer*0.75;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+  box-shadow: -5px 0px 10px 0px rgba(0,0,0,0.1);
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    width: 52px;
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+.settings-panel {
+  background: $white;
+  border-left: $card-border-width solid $card-border-color;
+  box-shadow: -5px 0px 10px 0px rgba(0,0,0,0.1);
+  display: block;
+  height: 100%;
+  position: fixed;
+  width: 240px;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: -240px;
+  transition: right .2s ease-in-out;
+
+  .settings.open &:before {
+    content: "";
+    background: rgba($black, 0.2);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .settings.open & {
+    right: 0;
+  }
+}
+
+.settings-content {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  background: $white;
+
+  .ps__thumb-y,
+  .simplebar-scrollbar::before {
+    background: rgba($black, 0.5);
+  }
+}
+
+.settings-title {
+  padding: $spacer*1.35 $spacer*1.5;
+  font-size: .875rem;
+
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.settings-section {
+  border-top: $card-border-width solid $card-border-color;
+  padding: $spacer $spacer*1.5;
+}
+
+.settings-layouts {
+  line-height: 2;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.settings-layouts-item {
+  .badge {
+    background: $gray-500;
+    border-radius: 10rem;
+    color: $white;
+    padding: 0.2rem 0.35rem;
+  }
+
+  &,
+  &:hover {
+    color: $body-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &:hover .badge {
+    background: $gray-600;
+  }
+}
+
+.settings-theme {
+  display: block;
+  margin-bottom: $spacer;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  img {
+    border-radius: $border-radius;
+    border: 1px solid $gray-200;
+    box-shadow: $box-shadow-sm;
+    transform: scale(1);
+    transition: all .1s ease-in-out;
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
+}

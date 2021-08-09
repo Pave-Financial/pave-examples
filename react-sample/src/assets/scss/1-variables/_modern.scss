@@ -1,0 +1,97 @@
+// Fonts
+$font-weight-bold: 600;
+
+// Theme colors
+$blue:    #2c7be5;
+$pink:    #9D7BD8;
+$red:     #e51c23;
+$yellow:  #ff9800;
+$green:   #4CAF50;
+$cyan:    #47BAC1;
+
+$white:    #fff;
+$gray-100: #F4F7FA;
+$gray-200: #E5EAEF;
+$gray-300: #DAE0E6;
+$gray-400: #CAD2DA;
+$gray-500: #A3B1BD;
+$gray-600: #60717D;
+$gray-700: #3F4B57;
+$gray-800: #2A3540;
+$gray-900: #1D2329;
+$black: #000;
+
+$primary:          $blue;
+$secondary:        $pink;
+$tertiary:         lighten($blue, 10%);
+$success:          $green;
+$info:             $cyan;
+$warning:          $yellow;
+$danger:           $red;
+$light:            $gray-100;
+$dark:             #354052;
+
+// Body
+$body-bg: #F6F9FC;
+$body-color: $gray-700;
+
+// Border radius
+$border-radius-sm: .15rem;
+$border-radius:    .3rem;
+$border-radius-lg: .45rem;
+
+// Navbar
+$navbar-border-bottom: 1px solid #E4EBF6;
+
+// Card
+$card-border-color: transparent;
+$card-shadow: 0 .5rem 1rem rgba(20,40,60,.03);
+$card-title-font-weight: $font-weight-bold;
+
+// Sidebar general
+$sidebar-bg: $white;
+$sidebar-border: 1px solid #E4EBF6;
+
+// Sidebar brand
+$sidebar-brand-color: $gray-800;
+$sidebar-brand-font-weight: $font-weight-bold;
+
+// Sidebar header
+$sidebar-header-color: $gray-600;
+$sidebar-header-text-transform: uppercase;
+$sidebar-header-font-size: 0.65rem;
+
+// Sidebar link
+$sidebar-link-font-weight: $font-weight-bold;
+$sidebar-link-color: $gray-600;
+$sidebar-link-hover-color: $black;
+$sidebar-link-hover-bg: $white;
+$sidebar-link-hover-font-weight: $font-weight-bold;
+$sidebar-link-active-color: $primary;
+$sidebar-link-active-bg: $white;
+$sidebar-link-active-font-weight: $font-weight-bold;
+
+// Sidebar child link
+$sidebar-link-child-color: $gray-600;
+$sidebar-link-child-bg: $white;
+$sidebar-link-child-hover-color: $black;
+$sidebar-link-child-hover-bg: $white;
+$sidebar-link-child-active-color: $black;
+$sidebar-link-child-active-bg: $white;
+
+// Sidebar link icon
+$sidebar-link-icon-color: $black;
+$sidebar-link-icon-hover-color: $black;
+$sidebar-link-icon-active-color: $primary;
+
+// Sidebar bottom
+$sidebar-bottom-color: $gray-800;
+$sidebar-bottom-bg: $gray-100;
+
+// Simplebar
+$simplebar-scrollbar-bg: rgba(darken($primary, 50%), 0.175);
+
+// Hamburger
+$hamburger-width-top: 24px;
+$hamburger-width-middle: 24px;
+$hamburger-width-bottom: 14px;

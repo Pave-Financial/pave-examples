@@ -1,0 +1,27 @@
+.ql-snow .ql-editor {
+  min-height: 15rem;
+  background: $white;
+}
+
+.ql-toolbar.ql-snow {
+  font-family: $font-family-base;
+}
+
+.ql-container {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+.ql-bubble .ql-editor {
+  padding: 0;
+}
+
+.ql-bubble .ql-editor.ql-blank::before {
+  left: 0;
+  right: 0;
+}
+
+.ql-bubble .ql-tooltip {
+  border-radius: $border-radius-lg;
+  font-size: 13px;
+}
