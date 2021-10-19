@@ -2,7 +2,7 @@ import Foundation
 
 
 struct Expenditure {
-	let category: ExpenditureCategory
+    let tag: String
 	let merchantName: String
 	
 	let lastTransactionAmount: MoneyAmount
@@ -26,7 +26,7 @@ struct Expenditure {
 		let currency = Currency(code: dto.isoCurrencyCode)
 		
 		return Expenditure(
-			category: dto.type,
+            tag: dto.tags.first ?? "",
 			merchantName: dto.normalizedMerchantName,
 			lastTransactionAmount: MoneyAmount(currency: currency, amount: dto.lastAmount),
 			lastTransactionDescription: dto.lastDescription,
@@ -65,15 +65,6 @@ extension Expenditure {
 		}
 	}
 }
-
-enum ExpenditureCategory: String, Decodable {
-	case bill = "Bill"
-	case utility = "Utility"
-	case subscription = "Subscription"
-	case rent = "Rent"
-	case other = "Other"
-}
-
 
 enum ExpenditureFrequency: String, Decodable {
 	case daily, weekly, biweekly, monthly, bimonthly, quarterly, annual
