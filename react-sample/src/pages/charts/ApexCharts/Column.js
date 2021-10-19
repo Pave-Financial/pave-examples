@@ -38,7 +38,7 @@ const ColumnChart = ({ theme, recurringExpenditures }) => {
       colors: ["transparent"]
     },
     xaxis: {
-      tags: [
+      categories: [
         "Spending By Tag",
       ]
     },
