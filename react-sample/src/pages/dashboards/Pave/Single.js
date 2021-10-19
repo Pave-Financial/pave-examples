@@ -60,7 +60,7 @@ const ExpendituresTable = ({ recurringExpenditures, loading }) => {
           delta_amount: el.delta_amount,
           delta_percent: el.delta_percent,
           avg_period_days: el.avg_period_days,
-          category: el.category
+          tags: el.tags.join(', ')
         }
       }));
   }, [recurringExpenditures, loading]);
@@ -146,8 +146,8 @@ const expenditureTableColumns = [
     }
   },
   {
-    dataField: "category",
-    text: "Category",
+    dataField: "tags",
+    text: "Tags",
     sort: true
   },
   
