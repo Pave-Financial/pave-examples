@@ -2,7 +2,7 @@ import Foundation
 
 
 struct Expenditure {
-    let tag: String
+	let tag: String
 	let merchantName: String
 	
 	let lastTransactionAmount: MoneyAmount
@@ -26,7 +26,7 @@ struct Expenditure {
 		let currency = Currency(code: dto.isoCurrencyCode)
 		
 		return Expenditure(
-            tag: dto.tags.first ?? "",
+			tag: dto.tags.first ?? "",
 			merchantName: dto.normalizedMerchantName,
 			lastTransactionAmount: MoneyAmount(currency: currency, amount: dto.lastAmount),
 			lastTransactionDescription: dto.lastDescription,

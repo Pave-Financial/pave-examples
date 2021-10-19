@@ -43,8 +43,8 @@ class ExpensesDashboardPresenter: DashboardPresenterProtocol {
 				self.previousMonthExpenses = previousMonthExpenses
 				
 				for expenditure in currentMonthExpenses.allExpenditures {
-                    switch expenditure.tag {
-                    case "Subscription":
+					switch expenditure.tag {
+					case "Subscription":
 						self.currentMonthExpenses.subscriptions.append(expenditure)
 					default:
 						self.currentMonthExpenses.bills.append(expenditure)
