@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import {map, groupBy} from 'lodash';
 import numeral from 'numeral'
 const ColumnChart = ({ theme, recurringExpenditures }) => {
-  const groupedData = groupBy(recurringExpenditures, (elem) => elem.category);
+  const groupedData = groupBy(recurringExpenditures, (elem) => elem.tags[0]);
 
-  const sourceData = groupedData ? groupedData : []
-  const data = map(sourceData, (expenditures, category) => {
+  const sourceData = groupedData || []
+  const data = map(sourceData, (expenditures, tag) => {
     return {
-      name: category,
+      name: tag,
       data: [expenditures.reduce((accumulator, current) => accumulator + (current.last_amount || 0), 0)]
     }
   })
@@ -38,8 +38,8 @@ const ColumnChart = ({ theme, recurringExpenditures }) => {
       colors: ["transparent"]
     },
     xaxis: {
-      categories: [
-        "Spending By Category",
+      tags: [
+        "Spending By Tag",
       ]
     },
     yaxis: {
