@@ -11,7 +11,7 @@ struct MonthExpenses {
 	lazy var billsTotal: MoneyAmount = {
 		bills.reduce(into: MoneyAmount.zero) { (result, expenditure) in
 			do {
-				try result += expenditure.lastTransactionAmount
+				try result += expenditure.lastAmount
 			} catch {
 				return
 			}
@@ -22,7 +22,7 @@ struct MonthExpenses {
 	lazy var subscriptionsTotal = {
 		subscriptions.reduce(into: MoneyAmount.zero) { (result, expenditure) in
 			do {
-				try result += expenditure.lastTransactionAmount
+				try result += expenditure.lastAmount
 			} catch {
 				return
 			}
