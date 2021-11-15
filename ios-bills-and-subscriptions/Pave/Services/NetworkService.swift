@@ -22,12 +22,12 @@ class NetworkService {
 	}
 	
 	var token: String {
-		return "tn4wIX5U2fBNU9A1romAL4vFVo64TiSB"
+		return "your_api_token"
 	}
 	
 	var baseURL: String = "https://api.pave.dev/v1"
 
-    var userId: String = "sandbox_default_user_001"
+    var userId: String = "your_user_id"
 	
 	typealias NetworkServiceCompletion = (Result<Data, NetworkServiceError>) -> ()
 	
