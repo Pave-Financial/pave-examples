@@ -22,12 +22,12 @@ class NetworkService {
 	}
 	
 	var token: String {
-		return <#insert token here#>
+		return "your_api_token"
 	}
 	
 	var baseURL: String = "https://api.pave.dev/v1"
 
-	var userId: String = <#insert user_id here#>
+    var userId: String = "your_user_id"
 	
 	typealias NetworkServiceCompletion = (Result<Data, NetworkServiceError>) -> ()
 	
@@ -43,6 +43,7 @@ class NetworkService {
 				completion(.failure(.networkError(description: "No network")))
 				return
 			}
+            
 			if let data = data, response.statusCode == 200 {
 				completion(.success(data))
 			} else if let error = error {

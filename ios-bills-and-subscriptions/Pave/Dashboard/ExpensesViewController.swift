@@ -149,9 +149,9 @@ extension ExpensesViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	private func configureCell(_ cell: ExpenditureCell, with model: Expenditure) {
-		cell.setMerchant(model.merchantName)
-		cell.setAmount(model.lastTransactionAmount)
-		cell.setLastDeltaAmount(model.transactionDeltaAmount)
+		cell.setMerchant(model.normalizedMerchantName)
+		cell.setAmount(model.lastAmount)
+		cell.setLastDeltaAmount(model.deltaAmount)
 		cell.setImage(model.merchantNameAbbreviation.image())
 		cell.setSubtitle(model.normalizedFrequency.rawValue.byCapitalizingFirstLetter())
 	}

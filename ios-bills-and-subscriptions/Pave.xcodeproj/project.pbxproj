@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		769DD35ED031A34ECCD51125 /* Pods_Pave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC684EF43C655E331D245524 /* Pods_Pave.framework */; };
+		8C607E0E27408BCD00DC3CD9 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C607E0D27408BCD00DC3CD9 /* Transaction.swift */; };
 		8E0927A62659153700556216 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0927A52659153700556216 /* StringExtentions.swift */; };
 		8E283ABB263861020071D831 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E283ABA263861020071D831 /* NetworkService.swift */; };
 		8E283AC726386BCC0071D831 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E283AC326386BCC0071D831 /* ChartViewController.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C607E0D27408BCD00DC3CD9 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		8E0927A52659153700556216 /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtentions.swift; sourceTree = "<group>"; };
 		8E283ABA263861020071D831 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8E283AC326386BCC0071D831 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				8E490A1D263A04A500828080 /* ErrorWithDescription.swift */,
 				8E490A0B2639C87700828080 /* Expenditure.swift */,
 				8E891E2D263B090200516599 /* MoneyAmount.swift */,
+				8C607E0D27408BCD00DC3CD9 /* Transaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				8E283B0A263874760071D831 /* DateExtentions.swift in Sources */,
 				8E0927A62659153700556216 /* StringExtentions.swift in Sources */,
 				8E891E2E263B090200516599 /* MoneyAmount.swift in Sources */,
+				8C607E0E27408BCD00DC3CD9 /* Transaction.swift in Sources */,
 				8E891E19263ABD4C00516599 /* InsetLabel.swift in Sources */,
 				8EDEDC3726385B1C00CAA204 /* SceneDelegate.swift in Sources */,
 				8EE9D219263C2A1F00098B39 /* MonthExpenses.swift in Sources */,

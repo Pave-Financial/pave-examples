@@ -30,10 +30,10 @@ class ExpensesDashboardPresenter: DashboardPresenterProtocol {
 				print(error)
 				self.view.showError(error)
 			case .success(let result):
-				let transactionsSortedByDate = result.sorted { $0.lastTransactionDate > $1.lastTransactionDate }
+				let transactionsSortedByDate = result.sorted { $0.lastDate > $1.lastDate }
 				transactionsSortedByDate.forEach { print($0) }
 				
-				guard let monthToShow = transactionsSortedByDate.first?.lastTransactionDate else {
+				guard let monthToShow = transactionsSortedByDate.first?.lastDate else {
 					self.view.showError(SimpleError(errorDescription: "You have no transactions"))
 					return
 				}
@@ -43,7 +43,7 @@ class ExpensesDashboardPresenter: DashboardPresenterProtocol {
 				self.previousMonthExpenses = previousMonthExpenses
 				
 				for expenditure in currentMonthExpenses.allExpenditures {
-					switch expenditure.tag {
+                    switch expenditure.tag {
 					case "Subscription":
 						self.currentMonthExpenses.subscriptions.append(expenditure)
 					default:
@@ -63,19 +63,19 @@ class ExpensesDashboardPresenter: DashboardPresenterProtocol {
 		
 		for transaction in expenses {
 			// if the transaction is from current month
-			if transaction.lastTransactionDate.isEqual(to: currentDate, toGranularity: Calendar.Component.month) {
+			if transaction.lastDate.isEqual(to: currentDate, toGranularity: Calendar.Component.month) {
 				currentMonthExpenses.allExpenditures.append(transaction)
 				do {
-					try currentMonthExpenses.total += transaction.lastTransactionAmount
+					try currentMonthExpenses.total += transaction.lastAmount
 				} catch {
 					print("skipped adding \(transaction), because it has different currency")
 				}
 			}
 			// if the transaction is from previous month
-			if transaction.lastTransactionDate.isEqual(to: currentDate.oneMonthAgo, toGranularity: Calendar.Component.month) {
+			if transaction.lastDate.isEqual(to: currentDate.oneMonthAgo, toGranularity: Calendar.Component.month) {
 				previoustMonthExpenses.allExpenditures.append(transaction)
 				do {
-					try previoustMonthExpenses.total += transaction.lastTransactionAmount
+					try previoustMonthExpenses.total += transaction.lastAmount
 				} catch {
 					print("skipped adding \(transaction), because it has different currency")
 				}
